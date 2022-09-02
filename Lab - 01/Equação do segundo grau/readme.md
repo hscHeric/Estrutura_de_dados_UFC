@@ -1,4 +1,4 @@
-#**Equação do Segundo grau**
+#Equação do Segundo grau
 
 Implemente uma função que calcule as raízes de uma equação do segundo grau, do tipo $(ax^2 + bx + c)$, Essa função deve obedecer ao protótipo:
 
