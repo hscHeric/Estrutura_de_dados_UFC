@@ -1,8 +1,3 @@
-/*
-Fa¸ca uma fun¸c˜ao recursiva que recebe um vetor ordenado e um inteiro x e retorna 1
-se x pertencer ao vetor e 0 caso contr´ario
-*/
-
 #include <iostream>
 
 using namespace std;

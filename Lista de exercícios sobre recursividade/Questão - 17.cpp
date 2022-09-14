@@ -1,7 +1,3 @@
-/*Implemente uma fun¸c˜ao recursiva para resolver o seguinte problema: dado um vetor
-com n n´umeros inteiros positivos e um outro n´umero inteiro positivo x, determine
-se existem ou n˜ao dois elementos cuja soma ´e igual a x*/
-
 #include <iostream>
 
 using namespace std;

@@ -1,5 +1,3 @@
-// Fa¸ca uma fun¸c˜ao recursiva que permita somar os elementos de um vetor de inteiros
-
 #include <iostream>
 
 using namespace std;
