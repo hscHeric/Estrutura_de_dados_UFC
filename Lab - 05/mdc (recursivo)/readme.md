@@ -10,8 +10,6 @@ O máximo divisor comum dos inteiros x e y é o maior inteiro que é divisível 
 
 3
 
-//////////////////////////////////////////////
-
 <h2>Exemplo de Entrada</h2>
 
 136 48
