@@ -14,7 +14,11 @@ A força das vacinas e a contagem de células T de pacientes cabem em um número
 <h2>Exemplo de Entrada</h2>
 
 5
+
+
 123 146 454 542 456
+
+
 100 328 248 689 200
 
 <h2>Exemplo de Saída</h2>
@@ -30,8 +34,14 @@ A vacina 2 (contagem 146) não cura nenhum outro.
 <h2>Exemplo de Entrada</h2>
 
 5
+
+
 123 690 454 150 456
+
+
 100 328 248 689 145
+
+
 
 <h2>Exemplo de Saída</h2>
 
