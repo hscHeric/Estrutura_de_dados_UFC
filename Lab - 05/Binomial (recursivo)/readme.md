@@ -14,8 +14,6 @@ Faça um programa recursivo para encontrar o número de maneiras de escolher k p
 
 120
 
-//////////////////////////////////////////////
-
 <h2>Exemplo de Entrada</h2>
 
 6 4
