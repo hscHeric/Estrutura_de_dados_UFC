@@ -9,12 +9,15 @@ Essa função deve ter como valor de retorno o número de raízes reais e distin
 Exemplo:
 
 >>
+
 1
 
 2
 
 -15
+
 <<
+
 2
 
 x1 = 3
@@ -22,11 +25,13 @@ x1 = 3
 x2 = -5
 
 >>
+
 2
 
 4
 
 2
+
 <<
 
 1
