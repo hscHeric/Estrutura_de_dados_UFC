@@ -83,7 +83,7 @@ typedef struct
 {
     int comparacoes = 0;
     int trocas = 0;
-}trocasComparacoes;
+} trocasComparacoes;
 ```
 e usarei a seguinte função main() para testar os algoritimos:
 ```
@@ -95,6 +95,10 @@ int main(void)
 
     cout << "Trocas:" << valueToPrint.trocas << endl;
     cout << "Comparações" << valueToPrint.comparacoes << endl;
+    for (int valor : vetorBubble)
+    {
+        cout << valor << " ";
+    }
 }
 ```
 * <h3 aling="right">BubbleSort:</h3>
@@ -176,3 +180,76 @@ trocasComparacoes SelectionSort(int vetor[], int tamanho)
 ```
 Trocas: 15</br>
 Comparações: 120
+
+* <h3 aling="right">MergeSort:</h3>
+
+No caso do MergeSort será necessario explicitarmos algumas coisa, primeiro ele usa usa função auxiliar chamada intercala para intercalar dois subvetores, segundo ela não necessariamente faz trocas entre dois elementos, na verdade ela intercala dois subvetores menores, então afim de facilitar o entendimento vou usar o numero de vezes que intercala for chacado como o numero de trocas, e como número de comparações vou utilizar as comparações do intercala.
+
+* Função Intercala:
+```
+trocasComparacoes intercala(int *v, int inicio, int meio, int fim)
+{
+    trocasComparacoes valueToReturn;
+    int i, j, k;
+    int *w = new int[fim - inicio + 1];
+    i = inicio;
+    j = meio + 1;
+    k = 0;
+    while (i <= meio && j <= fim)
+    {
+        valueToReturn.comparacoes++;
+        if (v[i] <= v[j])
+        {
+            w[k] = v[i];
+            i++;
+        }
+        else
+        {
+            w[k] = v[j];
+            j++;
+        }
+        k++;
+        valueToReturn.trocas++;
+    }
+    while (i <= meio)
+    {
+        w[k] = v[i];
+        i++;
+        k++;
+        valueToReturn.trocas++;
+    }
+    while (j <= fim)
+    {
+        w[k] = v[j];
+        j++;
+        k++;
+        valueToReturn.trocas++;
+    }
+    for (k = inicio; k <= fim; k++)
+    {
+        v[k] = w[k - inicio];
+    }
+    delete[] w;
+    return valueToReturn;
+}
+```
+
+* Função principal do MergeSort:
+
+```
+trocasComparacoes mergeSort(int *v, int inicio, int fim)
+{
+    trocasComparacoes valueToReturn;
+    if (inicio < fim)
+    {
+        int meio = (inicio + fim) / 2;
+        valueToReturn = mergeSort(v, inicio, meio);
+        valueToReturn = mergeSort(v, meio + 1, fim);
+        valueToReturn = intercala(v, inicio, meio, fim);
+    }
+    return valueToReturn;
+}
+```
+
+Trocas: 16</br>
+Comparações: 15
