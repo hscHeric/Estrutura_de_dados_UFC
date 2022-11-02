@@ -65,3 +65,60 @@ Primeiro afim de basear a explicação vamos analizar as complexidades de melhor
 Agora vamos analisar o que aumenta significativamente a complexidade do pior caso, para isso necessita-se ter em mente que o pior caso trata-se de um vetor já ordenado. Suponho um vetor já ordenado de tamanho n = 5 cujo os elementos são [1, 2, 3, 4, 5]. Escolhendo o primeiro ou o ultimo elemento do vetor como o pivô do particionamento, pode se observar que o particionamento a esquerda ou a direita (Dependendo do pivô escolhido) sempre será ∅ e sua complexidade será $c\sum_{j=1} j = c\frac{n(n+1)}{2} = O(n^2)$
 
 A escolhado pior afeta de forma significativa a execução do algoritimo, uma das maneiras de contornar o fato de que uma das partições seja ∅ seria escolher um valor mais central ao vetor como pivô e fazer uma troca de tal valor com o valor inicial ou com o final, tal etapa retiraria pelo menos uma das pilhas de execução cujo um dos vetores da separação seja nulo.
+
+## 5. Dada a sequência de números: [13, 7, 11, 2, 5, 17, 7, 13, 4, 6, 7, 3, 7, 10, 54, 13], ordene-a em ordem crescente segundo cado um dos algoritmo estudados em sala. Para cada algoritmo, mostre o número de comparações e trocas que realizam na ordenação de sequências.
+
+Obs: Afim de facilitar a resolução dessa questão vou utilizar uma função para fazer a troca (swap):
+```
+void swap(int *a, int*b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+```
+,farei tambem algumas modificações nos algoritimos para que os mesmos retornem um tipo estruturado com o número de comparações e o número de trocas:
+```
+typedef struct
+{
+    int comparacoes = 0;
+    int trocas = 0;
+}trocasComparacoes;
+```
+e usarei a seguinte função main() para testar os algoritimos:
+```
+int main(void)
+{
+    int vetor[] = {13, 7, 11, 2, 5, 17, 7, 13, 4, 6, 7, 3, 7, 10, 54, 13};
+    int tamanho = 16;
+    trocasComparacoes valueToPrint = ColoqueAquiONomeDoAlgoritimoImplementado(ValoresDeEntrada);
+
+    cout << "Trocas:" << valueToPrint.trocas << endl;
+    cout << "Comparações" << valueToPrint.comparacoes << endl;
+}
+```
+* BubbleSort:
+```
+trocasComparacoes BubbleSort(int *vetor, int tamanho)
+{
+    trocasComparacoes valueToReturn;
+    bool trocou = true;
+    for (int i = 0; i < tamanho - 1 && trocou; i++)
+    {
+        trocou = false;
+        for (int j = tamanho - 1; j > i; j--)
+        {
+            valueToReturn.comparacoes++;
+            if (vetor[j] < vetor[j-1])
+            {
+                swap(vetor[j], vetor[j-1]);
+                trocou = true;
+                valueToReturn.trocas++;
+            }
+        }
+    }
+    return valueToReturn;
+}
+```
+- Trocas: 49
+- Comparações: 114
