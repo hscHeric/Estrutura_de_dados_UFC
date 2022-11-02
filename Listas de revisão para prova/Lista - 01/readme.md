@@ -54,6 +54,12 @@ int separa (int *vetor, int p, int r)
 }
 ```
 
-## 4. Discuta como a escolha do pivô pode influenciar no desempenho do método
-quicksort. Proponha estratégias para a escolha do pivô, visando melhorar seu
-desempenho.
+## 4. Discuta como a escolha do pivô pode influenciar no desempenho do método quicksort. Proponha estratégias para a escolha do pivô, visando melhorar seu desempenho.
+Primeiro afim de basear a explicação vamos analizar as complexidades de melhor caso, caso médio e pior caso do quicksort de maneira assintótica.
+
+* Melhor caso: O(n lg n)
+* Caso médio: O(n lg n) 
+* Pior caso: O(n²)
+* Mémoria: O(n)
+
+Agora vamos analisar o que torna o maior caso em um aumento significativo:
