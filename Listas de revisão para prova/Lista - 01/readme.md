@@ -29,3 +29,31 @@ Analisando como o algoritimo funcionaria:
 
 ## 2. Uma amiga lhe disse que é capaz de ordenar qualquer conjunto de quatro números com no máximo 5 comparações. O seu amigo está falando a verdade ou mentindo? Justifique sua resposta
   Possivel, observando a complexidade relativa a N = 4 podemos fazer a escolha dos algoritimos baseadas em quando qual algoritimo é melhor executado, por exemplo para um vetor desordenado poderia-se usar o quicksort, mas no caso de um vetor ordenada uma boa alternativa seria o mergeSort, pois não importando qual o tipo ou a ordenação do conjunto de dados se a escolha for feita em meio de um dos algoritimos de ordenação apresentados existe como ordenar qualquer vetor de quatro elementos com 5 operações. Obviamente tal método não funcionaria se a questão explissitasse qual algoritimo usar.
+  
+## 3. Um vetor v[p..r] está “arrumado” se existe j ∈ [p, r] tal que v[p..j − a] ≤ v[j] < v[j + 1..r]. Escreva um algoritmo que decida se v[p..r] está arrumado. Em caso afirmativo, seu algoritmo deve devolver o valor de j.
+A descrição a cima caracteriza a função separa, usada na implementação do QuickSort
+
+```
+int separa (int *vetor, int p, int r)
+{
+    int c = vetor[r];
+    int j = p;
+    for (int k = p; k < r; k++)
+    {
+        if (vetor[k] <= c)
+        {
+            int aux = vetor[k];
+            vetor[k] = vetor[j];
+            vetor[j] = aux;
+            j++;
+        }
+    }
+    vetor[r] = vetor[j];
+    vetor[j] = c;
+    return j;
+}
+```
+
+## 4. Discuta como a escolha do pivô pode influenciar no desempenho do método
+quicksort. Proponha estratégias para a escolha do pivô, visando melhorar seu
+desempenho.
