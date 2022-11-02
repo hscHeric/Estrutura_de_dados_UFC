@@ -120,5 +120,5 @@ trocasComparacoes BubbleSort(int *vetor, int tamanho)
     return valueToReturn;
 }
 ```
-- Trocas: 49
-- Comparações: 114
+Trocas: 49
+Comparações: 114
