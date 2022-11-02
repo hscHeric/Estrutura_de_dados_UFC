@@ -97,7 +97,8 @@ int main(void)
     cout << "Comparações" << valueToPrint.comparacoes << endl;
 }
 ```
-* BubbleSort:
+* <h3 aling="right">BubbleSort:</h3>
+
 ```
 trocasComparacoes BubbleSort(int *vetor, int tamanho)
 {
@@ -123,7 +124,7 @@ trocasComparacoes BubbleSort(int *vetor, int tamanho)
 Trocas: 49</br>
 Comparações: 114
 
-* InsertionSort: </br>
+* <h3 aling="right">InsertionSort:</h3>
 No caso do InsertionSort vou considerar apenas trocas as operações que são dentro do laço de repetição while. Pois como acontecem diversar "trocas" no InsertionSort por conta do uso da variável chave, vai ficar a seu cargo decidir o que vai considerar uma troca.
 
 ```
@@ -149,3 +150,27 @@ trocasComparacoes InsertionSort(int *vetor, int tamanho)
 ```
 Trocas: 49</br>
 Comparações: 15
+
+* <h3 aling="right">SelectionSort:</h3>
+
+```
+trocasComparacoes SelectionSort(int vetor[], int tamanho)
+{
+    trocasComparacoes valueToReturn;
+    for (int i = 0; i < tamanho - 1; i++)
+    {
+        int indexMin = i;
+        for (int j = i + 1; j < tamanho; j++)
+        {
+            valueToReturn.comparacoes++;
+            if (vetor[j] < vetor[indexMin])
+            {
+                indexMin = j;
+            }
+        }
+        swap(vetor[i], vetor[indexMin]);
+        valueToReturn.trocas++;
+    }
+    return valueToReturn;
+}
+```
