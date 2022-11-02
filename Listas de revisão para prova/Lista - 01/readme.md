@@ -253,3 +253,74 @@ trocasComparacoes mergeSort(int *v, int inicio, int fim)
 
 Trocas: 16</br>
 Comparações: 15
+
+* <h3 aling="right">QuickSort:</h3>
+
+Para a implementação do meu método de contagem no caso do QuickSort, foi necessario uma mudaça em relação ao tipo estruturado trocasComparacoes, para que o mesmo pudesse conter um pivô em seus valores:
+```
+typedef struct
+{
+    int comparacoes = 0;
+    int trocas = 0;
+    int pivo = 0;
+} trocasComparacoes;
+```
+Fora isso, a função QuickSort como a MergeSort, tambem faz o uso de uma função auxiliar na sua execução, nesse caso a função separa:
+
+* Função separa
+```
+trocasComparacoes Separa(int *vetor, int inicio, int fim)
+{
+    trocasComparacoes valueToReturn;
+    int pivo = vetor[inicio];
+    int i = inicio + 1;
+    int f = fim;
+    while (i <= f)
+    {
+        if (vetor[i] <= pivo)
+        {
+            i++;
+        }
+        else if (pivo < vetor[f])
+        {
+            f--;
+        }
+        else
+        {
+            swap(vetor[i], vetor[f]);
+            i++;
+            f--;
+            valueToReturn.trocas++;
+        }
+        valueToReturn.comparacoes++;
+    }
+    swap(vetor[inicio], vetor[f]);
+    valueToReturn.trocas++;
+    valueToReturn.pivo = f;
+    return valueToReturn;
+}
+```
+* Função principal do QuickSort
+
+```
+trocasComparacoes quickSort(int *vetor, int inicio, int fim)
+{
+    trocasComparacoes valueToReturn;
+    if (inicio < fim)
+    {
+        trocasComparacoes valueToReturnAux = separa(vetor, inicio, fim);
+        valueToReturn.comparacoes += valueToReturnAux.comparacoes;
+        valueToReturn.trocas += valueToReturnAux.trocas;
+        valueToReturn.pivo = valueToReturnAux.pivo;
+        trocasComparacoes valueToReturnAux2 = quickSort(vetor, inicio, valueToReturnAux.pivo - 1);
+        valueToReturn.comparacoes += valueToReturnAux2.comparacoes;
+        valueToReturn.trocas += valueToReturnAux2.trocas;
+        trocasComparacoes valueToReturnAux3 = quickSort(vetor, valueToReturnAux.pivo + 1, fim);
+        valueToReturn.comparacoes += valueToReturnAux3.comparacoes;
+        valueToReturn.trocas += valueToReturnAux3.trocas;
+    }
+    return valueToReturn;
+}
+```
+Trocas: 18</br>
+Comparações: 45
