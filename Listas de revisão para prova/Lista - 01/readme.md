@@ -120,5 +120,32 @@ trocasComparacoes BubbleSort(int *vetor, int tamanho)
     return valueToReturn;
 }
 ```
-Trocas: 49
+Trocas: 49</br>
 Comparações: 114
+
+* InsertionSort: </br>
+No caso do InsertionSort vou considerar apenas trocas as operações que são dentro do laço de repetição while. Pois como acontecem diversar "trocas" no InsertionSort por conta do uso da variável chave, vai ficar a seu cargo decidir o que vai considerar uma troca.
+
+```
+trocasComparacoes InsertionSort(int *vetor, int tamanho)
+{
+    trocasComparacoes valueToReturn;
+    int i, key;
+    for (int j = 1; j < tamanho; j++)
+    {
+        key = vetor[j];
+        i = j - 1;
+        valueToReturn.comparacoes++;
+        while (i >= 0 && vetor[i] > key)
+        {
+            vetor[i+1] = vetor[i];
+            i--;
+            valueToReturn.trocas++;
+        }
+        vetor[i+1] = key;
+    }
+    return valueToReturn;
+}
+```
+Trocas: 49</br>
+Comparações: 15
