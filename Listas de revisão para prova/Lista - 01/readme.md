@@ -174,3 +174,5 @@ trocasComparacoes SelectionSort(int vetor[], int tamanho)
     return valueToReturn;
 }
 ```
+Trocas: 15</br>
+Comparações: 120
