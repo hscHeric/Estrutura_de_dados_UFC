@@ -95,7 +95,7 @@ int main(void)
 
     cout << "Trocas:" << valueToPrint.trocas << endl;
     cout << "Comparações" << valueToPrint.comparacoes << endl;
-    for (int valor : vetorBubble)
+    for (int valor : vetor)
     {
         cout << valor << " ";
     }
