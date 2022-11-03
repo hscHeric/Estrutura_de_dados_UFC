@@ -395,3 +395,147 @@ void selectionSort(int arr[], int k){
 ```
 ### (b) Suponha agora que queremos imprimir os $k$ menores elementos em ordem crescente. E ainda possível fazer isso em tempo $O(n)$ para quais quer valores de $k ≤ n$?
 Nesse caso analisando a complexidade assintotica dos algoritimos de ordenação pode-se fazer o  mesmo que na questão anterior, no entanto caso o intuito seja ordenar todo o vetor e imprimir os $k$ menores, torna-se dificil fazer tal operação em complexidade $O(n)$
+
+## 9. Modifique a funçãoo partition(partição) do QuickSort de modo que o valor do meio (mediano) de x[menor], x[maior] e x[meio] (onde meio = (maior + meio) / 2) seja usado para particionar o vetor. Em que casos o Quicksort usará esse método com mais eficiência do que a versão apresentada em aula? Em que casos ele será menos eficiente?
+
+Como já discutido na questão 4, a escolha do pivô afeta principalmente nos casos que o vetor já está ordenado, de modo que a separação irá acontecer de forma mais uniforme com o vetor. 
+
+```
+int separa(int *v, int inicio, int fim) {
+    int pivo = v[(inicio + fim) / 2];
+    int i = inicio - 1;
+    int j = fim + 1;
+    int aux;
+    while (true) {
+        do {
+            i++;
+        } while (v[i] < pivo);
+        do {
+            j--;
+        } while (v[j] > pivo);
+        if (i >= j) {
+            return j;
+        }
+        aux = v[i];
+        v[i] = v[j];
+        v[j] = aux;
+    }
+}
+```
+
+## 10. Implemente um algoritmo que ordena um vetor de inteiros e retorna a quantidade de inversões que ocorreram.
+
+```
+int insertion(int *vetor, int tamanho) {
+    int i, j, aux, trocas = 0;
+    for (i = 1; i < tamanho; i++) {
+        aux = vetor[i];
+        j = i - 1;
+        while (j >= 0 && vetor[j] > aux) {
+            vetor[j + 1] = vetor[j];
+            j--;
+            trocas++;
+        }
+        vetor[j + 1] = aux;
+    }
+    return trocas;
+}
+```
+
+### 11. Para cada um dos cinco algoritmos de ordenação estudados em aula, responda as seguintes perguntas:
+(a) Explique, resumidamente, o funcionamento do algoritmo.
+(b) Qual a complexidade de melhor caso?
+(c) Qual a complexidade de pior caso?
+
+Todas as perguntas da questão 11 já foram respondidas previamente em questões anteriores.
+
+### 12. Seja v um vetor de inteiros de tamanho n. Façaa uma função que ordena o vetor vem ordem decrescente usando uma versão recursiva do algoritmo de ordenação por inserção.
+
+```
+void InsertionSort(int *vetor, int tamanho) {
+    if (tamanho <= 1) {
+        return;
+    }
+    InsertionSort(vetor, tamanho - 1);
+    int ultimo = vetor[tamanho - 1];
+    int j = tamanho - 2;
+    while (j >= 0 && vetor[j] > ultimo) {
+        vetor[j + 1] = vetor[j];
+        j--;
+    }
+    vetor[j + 1] = ultimo;
+}
+```
+
+### 13. O algoritmo Mergesort (decrescente) usa uma função auxiliar, chamada intercala, que recebe como entrada dois vetores em ordem decrescente v[p . . . q − 1] e v[q . . . r − 1] e rearranja v[p . . . r − 1] em ordem decrescente. Escreva a função intercala para o Mergesort decrescente.
+
+```
+void intercala(int* A, int p, int q, int r) 
+{
+    int* W = new int[r - p + 1];
+    int i = p;
+    int j = q + 1;
+    int k = 0;
+
+    while (i <= q && j <= r) {
+        if (A[i] >= A[j]) {
+            W[k] = A[i];
+            i++;
+        }
+        else {
+            W[k] = A[j];
+            j++;
+        }
+        k++;
+    }
+    while (i <= q)
+    {
+        W[k] = A[i];
+        i++;
+        k++;
+    }
+    while (j <= r)
+    {
+        W[k] = A[j];
+        j++;
+        k++;
+    }
+    for (int i = p; i <= r; i++)
+    {
+        A[i] = W[i - p];
+    }
+
+    delete[] W;
+}
+```
+
+### 14. Reescrever o procedimento de partição do QuickSort (Separa) tomando como referência (pivô) o primeiro elemento (na implementação mais usual, toma-se o último).
+
+```
+int separa(int *v, int inicio, int fim) {
+    int pivo = v[inicio];
+    int i = inicio + 1;
+    int f = fim;
+    int aux;
+    while (i <= f) {
+        if (v[i] <= pivo) {
+            i++;
+        } else if (pivo < v[f]) {
+            f--;
+        } else {
+            aux = v[i];
+            v[i] = v[f];
+            v[f] = aux;
+            i++;
+            f--;
+        }
+    }
+    v[inicio] = v[f];
+    v[f] = pivo;
+    return f;
+}
+```
+
+### 15. Usando cada um dos algoritmos de ordenação estudado em sala de aula, implemente uma função que ordena um vetor de inteiros da seguinte forma: os números pares são ordenados em ordem crescente no início do vetor e os ímpares são ordenados em ordem decrescente no final do vetor.
+
+* ## BubbleSort
