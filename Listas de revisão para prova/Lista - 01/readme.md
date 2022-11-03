@@ -359,3 +359,6 @@ void SelectionSort(int *vetor, int tamanho)
 }
 ```
 Para entender por que o algoritmo é executado $n-1$ vezes, é necessário compreender seu funcionamento. O SelectionSort de forma resumida funciona da seguinte maneira: Primeiro se procura o menor elemento do vetor e o posiciona no início do mesmo, depois se seleciona o segundo menor elemento do vetor e o leva a segunda posição, e assim são seguidas sucessivas interação é fácil ver que quando a penúltima interação for executada o array estará ordenado de [0...n-1] logo nota-se que só resta um único lugar para o último elemento está, que também é a última posição do vetor logo o vetor já estará ordenado.
+
+* Melhor caso: $O(n)$ -> trata-se do caso em que o vetor já está ordenado
+* Pior cas: $O(n^2)$ -> vetor de tamanho $n$ desordenado
