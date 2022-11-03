@@ -57,10 +57,10 @@ int separa (int *vetor, int p, int r)
 ## 4. Discuta como a escolha do pivô pode influenciar no desempenho do método quicksort. Proponha estratégias para a escolha do pivô, visando melhorar seu desempenho.
 Primeiro afim de basear a explicação vamos analizar as complexidades de melhor caso, caso médio e pior caso do quicksort de maneira assintótica.
 
-* Melhor caso: O(n lg n)
-* Caso médio: O(n lg n) 
-* Pior caso: O(n²)
-* Mémoria: O(n)
+* Melhor caso: $O(n lg n)$
+* Caso médio: $O(n lg n) $
+* Pior caso: $O(n^2)$
+* Mémoria: $O(n)$
 
 Agora vamos analisar o que aumenta significativamente a complexidade do pior caso, para isso necessita-se ter em mente que o pior caso trata-se de um vetor já ordenado. Suponho um vetor já ordenado de tamanho n = 5 cujo os elementos são [1, 2, 3, 4, 5]. Escolhendo o primeiro ou o ultimo elemento do vetor como o pivô do particionamento, pode se observar que o particionamento a esquerda ou a direita (Dependendo do pivô escolhido) sempre será ∅ e sua complexidade será $c\sum_{j=1} j = c\frac{n(n+1)}{2} = O(n^2)$
 
