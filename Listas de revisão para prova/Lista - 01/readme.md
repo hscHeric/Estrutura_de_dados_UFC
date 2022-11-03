@@ -1,7 +1,7 @@
 # Lista de Ordenação
 
 ## 1. Uma amigo lhe disse que é capaz de ordenar qualquer conjunto de três números com no máximo 2 comparações. O seu amigo está falando a verdade ou mentindo? Justifique sua resposta.
-  Está mentindo. Para justificar essa afirmação, suponha o seguinte vetor de tamanho três [3, 1, 2], afim de exemplificação usaremos como base o algoritimo de ordenação por flutuação (Bubble sort): 
+  Está mentindo. Para justificar essa afirmação, suponha o seguinte vetor de tamanho três [3, 1, 2], a fim de exemplificação usaremos como base o algoritmo de ordenação por flutuação (Bubble sort): 
 
 ```
 void BubbleSort(int *A, int n)
@@ -23,15 +23,15 @@ void BubbleSort(int *A, int n)
     } 
 }
 ```
-Analisando como o algoritimo funcionaria:
+Analisando como o algoritmo funcionária:
 
-  Primeiro ele ira verificar se o elemento J, onde J é o índice do ultimo elemento do vetor, é menor que J-1. No caso apresentado o algoritimo vai fazer a seguinte verificação: 2 < 1, o resultado dessa verificação logicamente será falso, logo o algoritimo decrementa o j é faz a verificação 1 < 3, o resultado é verdadeiro é acontece a troca entre os elementos de índices 0 e 1 do nosso vetor. Agora podemos observar que obtemos o vetor [1, 3, 2]. a variavel i será incrementada e nossa verificação agora será 2 < 3, sua resultante é verdadeira e oa elementos de índices 1 e 2 do vetor são trocados. A partir dessa lógica pode se observar que existe um vetor K de tamanho N, onde N = 3, onde é impossivel ordenar o vetor com menos de N comparações. A mesma lógica de analise pode ser aplicada aos demais algoritimos de ordenação.  
+  Primeiro ele irá verificar se o elemento J, onde J é o índice do último elemento do vetor, é menor que J-1. No caso apresentado o algoritmo vai fazer a seguinte verificação: 2 < 1, o resultado dessa verificação logicamente será falso, logo o algoritmo decrementa o j é faz a verificação 1 < 3, o resultado é verdadeiro é acontece a troca entre os elementos de índices 0 e 1 do nosso vetor. Agora podemos observar que obtemos o vetor [1, 3, 2]. a variável i será incrementada e nossa verificação agora será 2 < 3, sua resultante é verdadeira e os elementos de índices 1 e 2 do vetor são trocados. A partir dessa lógica pode se observar que existe um vetor K de tamanho N, onde N = 3, onde é impossível ordenar o vetor com menos de N comparações. A mesma lógica de análise pode ser aplicada aos demais algoritmos de ordenação.  
 
 ## 2. Uma amiga lhe disse que é capaz de ordenar qualquer conjunto de quatro números com no máximo 5 comparações. O seu amigo está falando a verdade ou mentindo? Justifique sua resposta
-  Possivel, observando a complexidade relativa a N = 4 podemos fazer a escolha dos algoritimos baseadas em quando qual algoritimo é melhor executado, por exemplo para um vetor desordenado poderia-se usar o quicksort, mas no caso de um vetor ordenada uma boa alternativa seria o mergeSort, pois não importando qual o tipo ou a ordenação do conjunto de dados se a escolha for feita em meio de um dos algoritimos de ordenação apresentados existe como ordenar qualquer vetor de quatro elementos com 5 operações. Obviamente tal método não funcionaria se a questão explissitasse qual algoritimo usar.
+  Possível, observando a complexidade relativa a N = 4 podemos fazer a escolha dos algoritmos baseadas em quando qual algoritmo é melhor executado, por exemplo para um vetor desordenado poderia-se usar o quicksort, mas no caso de um vetor ordenada uma boa alternativa seria o mergeSort, pois não importando qual o tipo ou a ordenação do conjunto de dados se a escolha for feita em meio de um dos algoritmos de ordenação apresentados existe como ordenar qualquer vetor de quatro elementos com 5 operações. Obviamente tal método não funcionaria se a questão explicitasse qual algoritmo usar.
   
 ## 3. Um vetor v[p..r] está “arrumado” se existe j ∈ [p, r] tal que v[p..j − a] ≤ v[j] < v[j + 1..r]. Escreva um algoritmo que decida se v[p..r] está arrumado. Em caso afirmativo, seu algoritmo deve devolver o valor de j.
-A descrição a cima caracteriza a função separa, usada na implementação do QuickSort
+A descrição acima caracteriza a função separa, usada na implementação do QuickSort
 
 ```
 int separa (int *vetor, int p, int r)
@@ -55,20 +55,20 @@ int separa (int *vetor, int p, int r)
 ```
 
 ## 4. Discuta como a escolha do pivô pode influenciar no desempenho do método quicksort. Proponha estratégias para a escolha do pivô, visando melhorar seu desempenho.
-Primeiro afim de basear a explicação vamos analizar as complexidades de melhor caso, caso médio e pior caso do quicksort de maneira assintótica.
+Primeiro a fim de basear a explicação vamos analisar as complexidades de melhor caso, caso médio e pior caso do quicksort de maneira assintótica.
 
 * Melhor caso: $O(n lg n)$
 * Caso médio: $O(n lg n) $
 * Pior caso: $O(n^2)$
-* Mémoria: $O(n)$
+* Memória: $O(n)$
 
-Agora vamos analisar o que aumenta significativamente a complexidade do pior caso, para isso necessita-se ter em mente que o pior caso trata-se de um vetor já ordenado. Suponho um vetor já ordenado de tamanho n = 5 cujo os elementos são [1, 2, 3, 4, 5]. Escolhendo o primeiro ou o ultimo elemento do vetor como o pivô do particionamento, pode se observar que o particionamento a esquerda ou a direita (Dependendo do pivô escolhido) sempre será ∅ e sua complexidade será $c\sum_{j=1} j = c\frac{n(n+1)}{2} = O(n^2)$
+Agora vamos analisar o que aumenta significativamente a complexidade do pior caso, para isso necessita-se ter em mente que o pior caso trata-se de um vetor já ordenado. Suponho um vetor já ordenado de tamanho n = 5 cujo os elementos são [1, 2, 3, 4, 5]. Escolhendo o primeiro ou o último elemento do vetor como o pivô do particionamento, pode se observar que o particionamento a esquerda ou a direita (Dependendo do pivô escolhido) sempre será ∅ e sua complexidade será $c\sum_{j=1} j = c\frac{n(n+1)}{2} = O(n^2)$
 
-A escolhado pior afeta de forma significativa a execução do algoritimo, uma das maneiras de contornar o fato de que uma das partições seja ∅ seria escolher um valor mais central ao vetor como pivô e fazer uma troca de tal valor com o valor inicial ou com o final, tal etapa retiraria pelo menos uma das pilhas de execução cujo um dos vetores da separação seja nulo.
+A escolha do pior afeta de forma significativa a execução do algoritmo, uma das maneiras de contornar o fato de que uma das partições seja ∅ seria escolher um valor mais central ao vetor como pivô e fazer uma troca de tal valor com o valor inicial ou com o final, tal etapa retiraria pelo menos uma das pilhas de execução cujo um dos vetores da separação seja nulo.
 
-## 5. Dada a sequência de números: [13, 7, 11, 2, 5, 17, 7, 13, 4, 6, 7, 3, 7, 10, 54, 13], ordene-a em ordem crescente segundo cado um dos algoritmo estudados em sala. Para cada algoritmo, mostre o número de comparações e trocas que realizam na ordenação de sequências.
+## 5. Dada a sequência de números: [13, 7, 11, 2, 5, 17, 7, 13, 4, 6, 7, 3, 7, 10, 54, 13], ordene-a em ordem crescente segundo caso um dos algoritmos estudados em sala. Para cada algoritmo, mostra o número de comparações e trocas que se realizam na ordenação de sequências.
 
-Obs: Afim de facilitar a resolução dessa questão vou utilizar uma função para fazer a troca (swap):
+Obs: A Fim de facilitar a resolução dessa questão vou utilizar uma função para fazer a troca (swap):
 ```
 void swap(int *a, int*b)
 {
@@ -77,7 +77,7 @@ void swap(int *a, int*b)
     *b = temp;
 }
 ```
-,farei tambem algumas modificações nos algoritimos para que os mesmos retornem um tipo estruturado com o número de comparações e o número de trocas:
+,farei também algumas modificações nos algoritmos para que os mesmos retornem um tipo estruturado com o número de comparações e o número de trocas:
 ```
 typedef struct
 {
@@ -85,7 +85,7 @@ typedef struct
     int trocas = 0;
 } trocasComparacoes;
 ```
-e usarei a seguinte função main() para testar os algoritimos:
+e usarei a seguinte função main() para testar os algoritmos:
 ```
 int main(void)
 {
@@ -129,7 +129,7 @@ Trocas: 49</br>
 Comparações: 114
 
 * <h3 aling="right">InsertionSort:</h3>
-No caso do InsertionSort vou considerar apenas trocas as operações que são dentro do laço de repetição while. Pois como acontecem diversar "trocas" no InsertionSort por conta do uso da variável chave, vai ficar a seu cargo decidir o que vai considerar uma troca.
+No caso do InsertionSort vou considerar apenas trocas das operações que são dentro do laço de repetição while. Pois como acontecem diversas "trocas" no InsertionSort por conta do uso da variável chave, vai ficar a seu cargo decidir o que vai considerar uma troca.
 
 ```
 trocasComparacoes InsertionSort(int *vetor, int tamanho)
@@ -183,7 +183,7 @@ Comparações: 120
 
 * <h3 aling="right">MergeSort:</h3>
 
-No caso do MergeSort será necessario explicitarmos algumas coisa, primeiro ele usa usa função auxiliar chamada intercala para intercalar dois subvetores, segundo ela não necessariamente faz trocas entre dois elementos, na verdade ela intercala dois subvetores menores, então afim de facilitar o entendimento vou usar o numero de vezes que intercala for chacado como o numero de trocas, e como número de comparações vou utilizar as comparações do intercala.
+No caso do MergeSort será necessario explicitarmos algumas coisa, primeiro ele usa uma função auxiliar chamada intercala para intercalar dois subvetores, segundo ela não necessariamente faz trocas entre dois elementos, na verdade ela intercala dois subvetores menores, então a fim de facilitar o entendimento vou usar o número de vezes que intercala for chamado como o número de trocas, e como número de comparações vou utilizar as comparações do intercala.
 
 * Função Intercala:
 ```
@@ -324,3 +324,38 @@ trocasComparacoes quickSort(int *vetor, int inicio, int fim)
 ```
 Trocas: 18</br>
 Comparações: 45
+
+## 6. Dos algoritmos estudados, quais são estáveis? Utilize a questão anterior para apoiar sua resposta.
+
+Um método para analisar se cada um dos algoritmos é estável seria utilizar um tipo estruturado que guarda o valor e a posição do valor no vetor, no entanto tal modificação seria desnecessária sabendo que com uma análise rápida dos algoritmos já podemos responder essa pergunta
+
+* BubbleSort : Estável.
+* InsertionSort: Estável
+* SelectionSort: Não é estável.
+* MergeSort: Estável
+* QuickSort: Não é estável.
+
+## 7. Considere a ordenação de n números armazenados no arranjo A, localizando primeiro o menor elemento de A e permutando esse elemento contido em A[1]. Em seguida, encontre o segundo menor elemento de A e o troque pelo elemento A[2]. Continue dessa maneira para os primeiros n − 1 elementos de A. Implemente esse algoritmo que é conhecido como ordenação por seleção. Qual invariante do laço esse algoritmo mantém? Por que ele só precisa ser executado para os primeiros n − 1 elementos, e não para todos os elementos? Forneça os tempos de execução do melhor caso e do pior caso da ordenação por seleção em notação $O$.
+
+Primeiro vamos implementar o algoritmo de ordenação por seleção: 
+
+```
+void SelectionSort(int *vetor, int tamanho)
+{
+    for (int i = 0; i < tamanho - 1; i++)
+    {
+        int indexMin = i;
+        for (int j = i + 1; j < tamanho; j++)
+        {
+            if (vetor[j] < vetor[i])
+            {
+                indexMin = j;
+            }
+        }
+        int aux = vetor[i];
+        vetor[i] = vetor[indexMin];
+        vetor[indexMin] = aux;
+    }
+}
+```
+Para entender por que o algoritmo é executado $n-1$ vezes, é necessário compreender seu funcionamento. O SelectionSort de forma resumida funciona da seguinte maneira: Primeiro se procura o menor elemento do vetor e o posiciona no início do mesmo, depois se seleciona o segundo menor elemento do vetor e o leva a segunda posição, e assim são seguidas sucessivas interação é fácil ver que quando a penúltima interação for executada o array estará ordenado de [0...n-1] logo nota-se que só resta um único lugar para o último elemento está, que também é a última posição do vetor logo o vetor já estará ordenado.
