@@ -361,4 +361,37 @@ void SelectionSort(int *vetor, int tamanho)
 Para entender por que o algoritmo é executado $n-1$ vezes, é necessário compreender seu funcionamento. O SelectionSort de forma resumida funciona da seguinte maneira: Primeiro se procura o menor elemento do vetor e o posiciona no início do mesmo, depois se seleciona o segundo menor elemento do vetor e o leva a segunda posição, e assim são seguidas sucessivas interação é fácil ver que quando a penúltima interação for executada o array estará ordenado de [0...n-1] logo nota-se que só resta um único lugar para o último elemento está, que também é a última posição do vetor logo o vetor já estará ordenado.
 
 * Melhor caso: $O(n)$ -> trata-se do caso em que o vetor já está ordenado
-* Pior cas: $O(n^2)$ -> vetor de tamanho $n$ desordenado
+* Pior caso: $O(n^2)$ -> vetor de tamanho $n$ desordenado
+
+## 8. Dado um conjunto de n inteiros distintos e um inteiro positivo $k ≤ n$:
+### (a) Proponha um algoritmo que imprime os $k$ menores elementos do conjunto (em qualquer ordem) em tempo $O(n)$.
+Nessa questão vamos usar duas funçãos, primeiro um função de complexidade $O(n)$ que imprime os K primeiros elementos de um vetor. E um SelectionSort modificado que quando ordena apenas os K elementos, imprime eles.
+
+```
+void printArray(int arr[], int k){
+    for(int i = 0; i < k; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+```
+
+```
+void selectionSort(int arr[], int k){
+    int i, j, min, aux;
+    for(i = 0; i < k; i++){
+        min = i;
+        for(j = i + 1; j < k; j++){
+            if(arr[j] < arr[min]){
+                min = j;
+            }
+        }
+        aux = arr[i];
+        arr[i] = arr[min];
+        arr[min] = aux;
+    }
+    printArray(arr, k);
+}
+```
+### (b) Suponha agora que queremos imprimir os $k$ menores elementos em ordem crescente. E ainda possível fazer isso em tempo $O(n)$ para quais quer valores de $k ≤ n$?
+Nesse caso analisando a complexidade assintotica dos algoritimos de ordenação pode-se fazer o  mesmo que na questão anterior, no entanto caso o intuito seja ordenar todo o vetor e imprimir os $k$ menores, torna-se dificil fazer tal operação em complexidade $O(n)$
