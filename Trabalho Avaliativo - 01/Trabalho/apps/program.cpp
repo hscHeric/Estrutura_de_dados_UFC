@@ -1,6 +1,6 @@
 #include <iostream>
-#include "./Bibliotecas/Ordenacao/ordenacao.h"
-#include "./Bibliotecas/Utilitario/utilitario.h"
+#include "ordenacao.h"
+#include "utilitario.h"
 
 using namespace std;
 
@@ -13,6 +13,7 @@ int main(void)
 
     GerarVetorAleatorio(vetor, tamanho); //Adiciona ao vetor uma sequencia de numeros aleatorios de 0 a 100 gerados pelo rand();
 
+    cout << "Vetor antes de ser ordenado: ";
     ImprimeVetor(vetor, tamanho); //Imprime os valores iniciais do vetor antes da ordenacao
 
     //BubbleSort

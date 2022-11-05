@@ -1,5 +1,5 @@
 #include "ordenacao.h"
-#include "../Utilitario/utilitario.h"
+#include "utilitario.h"
 
 void BubbleSort(int* vetor, int tamanho)
 {
