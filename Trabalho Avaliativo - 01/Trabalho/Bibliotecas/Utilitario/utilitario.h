@@ -1,5 +1,5 @@
-#ifndef UTILITARIO.H
-#define UTILITARIO.H
+#ifndef UTILITARIO_H
+#define UTILITARIO_H
 
 void Troca(int* a, int* b); 
 

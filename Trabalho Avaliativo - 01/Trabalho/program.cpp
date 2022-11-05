@@ -6,17 +6,14 @@ using namespace std;
 
 int main(void)
 {
-    //Recebe o tamanho do vetor do usuario e cria o vetor dinamicamente
     int tamanho;
     cout << "Digite o tamanho do vetor: ";
     cin >> tamanho;
     int* vetor = new int[tamanho];
 
-    //Atribui valores aleatorios ao vetor 
-    GerarVetorAleatorio(vetor, tamanho);
+    GerarVetorAleatorio(vetor, tamanho); //Adiciona ao vetor uma sequencia de numeros aleatorios de 0 a 100 gerados pelo rand();
 
-    //Imprime o vetor desordenado
-    ImprimeVetor(vetor, tamanho);
+    ImprimeVetor(vetor, tamanho); //Imprime os valores iniciais do vetor antes da ordenacao
 
     //BubbleSort
     int* vetorBubbleSort = new int[tamanho];
