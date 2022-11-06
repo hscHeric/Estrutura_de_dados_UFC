@@ -1,6 +1,6 @@
 #include <iostream>
-#include "ordenacao.h"
-#include "utilitario.h"
+#include "../include/utilitario.h"
+#include "../include/ordenacao.h"
 
 using namespace std;
 
@@ -15,8 +15,12 @@ int main(void)
 
     cout << "Vetor antes de ser ordenado: ";
     ImprimeVetor(vetor, tamanho); //Imprime os valores iniciais do vetor antes da ordenacao
+    cout << "\n";
+
 
     //BubbleSort
+    cout << "BubbleSort: " << endl;
+    cout << "  ";
     int* vetorBubbleSort = new int[tamanho];
     CopiaVetor(vetor, vetorBubbleSort, tamanho);
     cout << "BubbleSort: ";
@@ -25,6 +29,7 @@ int main(void)
     delete[] vetorBubbleSort;
 
     //BubbleSortRecursivo
+    cout << "  ";
     int* vetorBubbleSortRecursivo = new int[tamanho];
     CopiaVetor(vetor, vetorBubbleSortRecursivo, tamanho);
     cout << "BubbleSort Recursivo: ";
@@ -32,7 +37,19 @@ int main(void)
     ImprimeVetor(vetorBubbleSortRecursivo, tamanho);
     delete[] vetorBubbleSortRecursivo;
 
+    //BubbleImparPar
+    cout << "  ";
+    int* vetorBubbleImparPar = new int[tamanho];
+    CopiaVetor(vetor, vetorBubbleImparPar, tamanho);
+    cout << "Bubble Impar Par: ";
+    BubbleSortImparPar(vetorBubbleImparPar, tamanho);
+    ImprimeVetor(vetorBubbleImparPar, tamanho);
+    delete[] vetorBubbleImparPar;
+
+    cout << "\n";
     //InsertionSort
+    cout << "InsertionSort: " << endl;
+    cout << "  ";
     int* vetorInsertionSort = new int[tamanho];
     CopiaVetor(vetor, vetorInsertionSort, tamanho);
     cout << "InsertionSort: ";
@@ -41,6 +58,7 @@ int main(void)
     delete[] vetorInsertionSort;
 
     //InsertionSortRecursivo
+    cout << "  ";
     int* vetorInsertionSortRecursivo = new int[tamanho];
     CopiaVetor(vetor, vetorInsertionSortRecursivo, tamanho);
     cout << "InsertionSort Recursivo: ";
@@ -48,7 +66,20 @@ int main(void)
     ImprimeVetor(vetorInsertionSortRecursivo, tamanho);
     delete[] vetorInsertionSortRecursivo;
 
+    //InsertionSortImparPar
+    cout << "  ";
+    int* vetorInsertionSortImparPar = new int[tamanho];
+    CopiaVetor(vetor, vetorInsertionSortImparPar, tamanho);
+    cout << "InsertionSort Impar Par: ";
+    InsertionSortImparPar(vetorInsertionSortImparPar, tamanho);
+    ImprimeVetor(vetorInsertionSortImparPar, tamanho);
+    delete[] vetorInsertionSortImparPar;
+
+    cout << "\n";
+
     //SelectionSort
+    cout << "SelectionSort: " << endl;
+    cout << "  ";
     int* vetorSelectionSort = new int[tamanho];
     CopiaVetor(vetor, vetorSelectionSort, tamanho);
     cout << "SelectionSort: ";
@@ -57,6 +88,7 @@ int main(void)
     delete[] vetorSelectionSort;
 
     //SelectionSortRecursivo
+    cout << "  ";
     int* vetorSelectionSortRecursivo = new int[tamanho];
     CopiaVetor(vetor, vetorSelectionSortRecursivo, tamanho);
     cout << "SelectionSort Recursivo: ";
@@ -64,7 +96,20 @@ int main(void)
     ImprimeVetor(vetorSelectionSortRecursivo, tamanho);
     delete[] vetorSelectionSortRecursivo;
 
+    //SelectionSortImparPar
+    cout << "  ";
+    int* vetorSelectionSortImparPar = new int[tamanho];
+    CopiaVetor(vetor, vetorSelectionSortImparPar, tamanho);
+    cout << "SelectionSort Impar Par: ";
+    SelectionSortImparPar(vetorSelectionSortImparPar, tamanho);
+    ImprimeVetor(vetorSelectionSortImparPar, tamanho);
+    delete[] vetorSelectionSortImparPar;
+
+    cout << "\n";
+
     //MergeSort
+    cout << "MergeSort: " << endl;
+    cout << "  ";
     int* vetorMergeSort = new int[tamanho];
     CopiaVetor(vetor, vetorMergeSort, tamanho);
     cout << "MergeSort: ";
@@ -73,6 +118,7 @@ int main(void)
     delete[] vetorMergeSort;
 
     //MergeSortInterativo
+    cout << "  ";
     int* vetorMergeSortInterativo = new int[tamanho];
     CopiaVetor(vetor, vetorMergeSortInterativo, tamanho);
     cout << "MergeSort Interativo: ";
@@ -80,13 +126,37 @@ int main(void)
     ImprimeVetor(vetorMergeSortInterativo, tamanho);
     delete[] vetorMergeSortInterativo;
 
+    //MergeSortImparPar
+    cout << "  ";
+    int* vetorMergeSortImparPar = new int[tamanho];
+    CopiaVetor(vetor, vetorMergeSortImparPar, tamanho);
+    cout << "MergeSort Impar Par: ";
+    MergeSortImparPar(vetorMergeSortImparPar, 0, tamanho - 1);
+    ImprimeVetor(vetorMergeSortImparPar, tamanho);
+    delete[] vetorMergeSortImparPar;
+
+    cout << "\n";
+
     //QuickSort
+    cout << "QuickSort: " << endl;
+    cout << "  ";
     int* vetorQuickSort = new int[tamanho];
     CopiaVetor(vetor, vetorQuickSort, tamanho);
     cout << "QuickSort: ";
     QuickSort(vetorQuickSort, 0, tamanho - 1);
     ImprimeVetor(vetorQuickSort, tamanho);
     delete[] vetorQuickSort;
+
+    //QuickSortImparPar
+    cout << "  ";
+    int* vetorQuickSortImparPar = new int[tamanho];
+    CopiaVetor(vetor, vetorQuickSortImparPar, tamanho);
+    cout << "QuickSort Impar Par: ";
+    QuickSortImparPar(vetorQuickSortImparPar, 0, tamanho - 1);
+    ImprimeVetor(vetorQuickSortImparPar, tamanho);
+    delete[] vetorQuickSortImparPar;
+
+    cout << "\n";
 
     delete[] vetor;
 
