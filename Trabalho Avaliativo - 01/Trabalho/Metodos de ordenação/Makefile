@@ -4,14 +4,18 @@ INCLUDE = ./include
 OBJ = ./obj
 SRC = ./src
 
-all: libs myapps
+all: libs myapp
 
-myapps:
+myapp:
 	g++ $(APPS)/program.cpp $(OBJ)/*.o -I $(INCLUDE) -o $(BIN)/program
 
-libs:
+libOrdenacao:
 	g++ -c $(SRC)/ordenacao.cpp -I $(INCLUDE) -o $(OBJ)/ordenacao.o
+
+libUtilitarios:
 	g++ -c $(SRC)/utilitario.cpp -I $(INCLUDE) -o $(OBJ)/utilitario.o
+
+libs: libUtilitarios libOrdenacao
 
 run:
 	$(BIN)/program

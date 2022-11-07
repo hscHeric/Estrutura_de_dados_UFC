@@ -3,29 +3,42 @@
 
 struct Aluno;
 
+//Cria struct aluno alocado dinamicamente
 Aluno* AlunoCria(char* nome, int matricula);
 
-void AlunoLibera(Aluno* aluno);
-
-//Retorna o nome do aluno
-char* AlunoGetNome(Aluno* aluno);
-
-int AlunoGetMatricula(Aluno* aluno);
-
+//Seta o nome do aluno
 void AlunoSetNome(Aluno* aluno, char* nome);
 
+//Set a matricula do aluno
 void AlunoSetMatricula(Aluno* aluno, int matricula);
 
-void AlunoOrdenaPorNome(Aluno** alunos, int tamanho);
+//Get o nome do aluno
+char* AlunoGetNome(Aluno* aluno);
 
-void AlunoOrdenaPorMatricula(Aluno** alunos, int tamanho);
+//Get a matricula do aluno
+int AlunoGetMatricula(Aluno* aluno);
 
-void ImprimirAlunos(Aluno** alunos, int tamanho);
+//Libera a memoria alocada para o aluno
+void AlunoLibera(Aluno* aluno);
 
-void DesordenarAlunos(Aluno** alunos, int tamanho);
+//Cria vetor de alunos alocado dinamicamente
+Aluno** AlunoCriaVetor(int tamanho);
 
-void CopiarAlunos(Aluno** alunos, Aluno** alunosCopia, int tamanho);
-
+//Libera a memoria alocada para o vetor de alunos
 void AlunoLiberaVetor(Aluno** alunos, int tamanho);
 
+//Ordena o vetor de alunos por nome
+void AlunoOrdenaPorNome(Aluno** alunos, int tamanho);
+
+//Ordena o vetor de alunos por matricula
+void AlunoOrdenaPorMatricula(Aluno** alunos, int tamanho);
+
+//Copia o vetor de alunos
+Aluno** AlunoCopiaVetor(Aluno** alunos, int tamanho);
+
+//Imprime o vetor de alunos
+void AlunoImprimeVetor(Aluno** alunos, int tamanho);
+
+//Desordena o vetor de alunos
+void AlunoDesordenaVetor(Aluno** alunos, int tamanho);
 #endif
