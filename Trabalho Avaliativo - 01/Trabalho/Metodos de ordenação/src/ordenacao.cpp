@@ -92,7 +92,7 @@ void InsertionSortRecursivo(int* vetor, int tamanho)
     }
     vetor[j + 1] = ultimo;
 }
-
+//InsetionSort
 void InsertionSortImparPar(int* vetor, int tamanho)
 {
     int i, j, aux;
@@ -105,27 +105,18 @@ void InsertionSortImparPar(int* vetor, int tamanho)
         }
         vetor[j] = aux;
     }
-    bool trocou = true;
-    for (i = 0; i < tamanho - 1 && trocou; i++)
+    int k = 0;
+    for (i = 0; i < tamanho; i++)
     {
-        trocou = false;
-        for (j = tamanho - 1; j > i; j--)
+        if (vetor[i] % 2 == 0)
         {
-            if (vetor[j - 1] % 2 == 1 && vetor[j] % 2 == 1 && vetor[j - 1] > vetor[j])
+            aux = vetor[i];
+            for (j = i; (j > k) && (aux < vetor[j - 1]); j--)
             {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
+                vetor[j] = vetor[j - 1];
             }
-            else if (vetor[j] % 2 == 1 && vetor[j - 1] % 2 == 0)
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j - 1] % 2 == 0 && vetor[j] % 2 == 0 && vetor[j - 1] < vetor[j])
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
+            vetor[j] = aux;
+            k++;
         }
     }
 }

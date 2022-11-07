@@ -6,29 +6,7 @@ using namespace std;
 int main(void)
 {
 
-/*
-
-    Aluno* alunos[38];
-"ALEXANDRE PINTO MARQUES TINOCO", 508072
-"BRUNO VINICIUS TITO FERREIRA", 514170
-"CECILIA MOURAO CARVALHEDO MESQUITA", 535595
-"DAVID SILVA FERNANDES DE OLIVEIRA", 539402
-"FELIPE KAUAN DOS SANTOS SILVA", 510175
-"GUILHERME PORDEUS FREIRE SAMPAIO", 475069
-"HERIC DA SILVA CRUZ", 537999
-"ISMAEL ARAUJO DE OLIVEIRA", 510909
-"JOAO PEDRO CORDEIRO GUIMARAES", 493703
-"LARISSA KELLEN DA SILVA SARAIVA", 496243
-"MAELY VITORIA GOMES LIRA", 541487
-"MONALISA SILVA BEZERRA", 535614
-"PEDRO RIVALDO TABOSA SILVA", 511881
-"TALES MACIEL MIRANDA", 495243
-"WILLIAM MARREIRO BRITO", 538468
-*/
-
-//Cria um vetor de alunos
 Aluno** alunos = AlunoCriaVetor(15);
-//Aloca as informações acima em cada posição do vetor
 alunos[0] = AlunoCria("ALEXANDRE PINTO MARQUES TINOCO", 508072);
 alunos[1] = AlunoCria("BRUNO VINICIUS TITO FERREIRA", 514170);
 alunos[2] = AlunoCria("CECILIA MOURAO CARVALHEDO MESQUITA", 535595);
@@ -45,7 +23,6 @@ alunos[12] = AlunoCria("PEDRO RIVALDO TABOSA SILVA", 511881);
 alunos[13] = AlunoCria("TALES MACIEL MIRANDA", 495243);
 alunos[14] = AlunoCria("WILLIAM MARREIRO BRITO", 538468);
 
-
 AlunoDesordenaVetor(alunos, 15);
 
 cout << "Alunos da turma QXD0010 - ESTRUTURA DE DADOS (2022.2 - T06) - Desordenados" << endl;
@@ -59,7 +36,6 @@ AlunoImprimeVetor(alunosOrdenadosPorNome, 15);
 AlunoLiberaVetor(alunosOrdenadosPorNome, 15);
 cout << "------------------------------------------------------------------------" << endl;
 
-//Ordenar os alunos por matrícula
 cout << "Alunos da turma QXD0010 - ESTRUTURA DE DADOS (2022.2 - T06) - Ordenados por matricula" << endl;
 Aluno** alunosOrdenadosPorMatricula = AlunoCopiaVetor(alunos, 15);
 AlunoOrdenaPorMatricula(alunosOrdenadosPorMatricula, 15);

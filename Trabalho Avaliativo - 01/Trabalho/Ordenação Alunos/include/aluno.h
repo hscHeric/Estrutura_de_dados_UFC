@@ -4,10 +4,10 @@
 struct Aluno;
 
 //Cria struct aluno alocado dinamicamente
-Aluno* AlunoCria(char* nome, int matricula);
+Aluno* AlunoCria(const char* nome, int matricula);
 
 //Seta o nome do aluno
-void AlunoSetNome(Aluno* aluno, char* nome);
+void AlunoSetNome(Aluno* aluno, const char* nome);
 
 //Set a matricula do aluno
 void AlunoSetMatricula(Aluno* aluno, int matricula);

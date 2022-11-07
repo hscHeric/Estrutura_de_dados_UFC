@@ -6,21 +6,26 @@
 using namespace std;
 
 struct Aluno{
-    char* nome;
+    char nome[100];
     int matricula;
 };
 
-Aluno* AlunoCria(char* nome, int matricula)
+Aluno* AlunoCria(const char* nome, int matricula)
 {
     Aluno* aluno = new Aluno;
-    aluno->nome = nome;
+    AlunoSetNome(aluno,nome);
     aluno->matricula = matricula;
     return aluno;
 }
 
-void AlunoSetNome(Aluno* aluno, char* nome)
+void AlunoSetNome(Aluno* aluno, const char* nome)
 {
-    aluno->nome = nome;
+    int i=0;
+    while(nome[i]!='\0'){
+        aluno->nome[i] = nome[i];
+        i++;
+    }    
+    aluno->nome[i] = '\0';
 }
 
 void AlunoSetMatricula(Aluno* aluno, int matricula)
