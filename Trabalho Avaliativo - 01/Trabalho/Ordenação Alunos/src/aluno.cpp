@@ -5,112 +5,122 @@
 
 using namespace std;
 
-struct Aluno{
+struct Aluno
+{
     char nome[100];
     int matricula;
 };
 
-Aluno* AlunoCria(const char* nome, int matricula)
+Aluno *AlunoCria(const char *nome, int matricula)
 {
-    Aluno* aluno = new Aluno;
-    AlunoSetNome(aluno,nome);
+    Aluno *aluno = new Aluno;
+    AlunoSetNome(aluno, nome);
     aluno->matricula = matricula;
     return aluno;
 }
 
-void AlunoSetNome(Aluno* aluno, const char* nome)
+void AlunoSetNome(Aluno *aluno, const char *nome)
 {
-    int i=0;
-    while(nome[i]!='\0'){
+    int i = 0;
+    while (nome[i] != '\0')
+    {
         aluno->nome[i] = nome[i];
         i++;
-    }    
+    }
     aluno->nome[i] = '\0';
 }
 
-void AlunoSetMatricula(Aluno* aluno, int matricula)
+void AlunoSetMatricula(Aluno *aluno, int matricula)
 {
     aluno->matricula = matricula;
 }
 
-char* AlunoGetNome(Aluno* aluno)
+char *AlunoGetNome(Aluno *aluno)
 {
     return aluno->nome;
 }
 
-int AlunoGetMatricula(Aluno* aluno)
+int AlunoGetMatricula(Aluno *aluno)
 {
     return aluno->matricula;
 }
 
-void AlunoLibera(Aluno* aluno)
+void AlunoLibera(Aluno *aluno)
 {
     delete aluno;
 }
 
-Aluno** AlunoCriaVetor(int tamanho)
+Aluno **AlunoCriaVetor(int tamanho)
 {
-    Aluno** alunos = new Aluno*[tamanho];
+    Aluno **alunos = new Aluno *[tamanho];
     return alunos;
 }
 
-void AlunoLiberaVetor(Aluno** alunos, int tamanho)
+void AlunoLiberaVetor(Aluno **alunos, int tamanho)
 {
-    for(int i = 0; i < tamanho; i++){
+    for (int i = 0; i < tamanho; i++)
+    {
         AlunoLibera(alunos[i]);
     }
     delete[] alunos;
 }
 
-void AlunoOrdenaPorNome(Aluno** alunos, int tamanho){
-    for(int i = 0; i < tamanho; i++){
-        for(int j = 0; j < tamanho - 1; j++){
-            if(strcmp(AlunoGetNome(alunos[j]), AlunoGetNome(alunos[j+1])) > 0){
-                Aluno* aux = alunos[j];
-                alunos[j] = alunos[j+1];
-                alunos[j+1] = aux;
-            }
-        }
-    }
-}
- 
-void AlunoOrdenaPorMatricula(Aluno** alunos, int tamanho)
+void AlunoOrdenaPorNome(Aluno **alunos, int tamanho)
 {
-    for(int i = 0; i < tamanho; i++){
-        for(int j = 0; j < tamanho - 1; j++){
-            if(AlunoGetMatricula(alunos[j]) > AlunoGetMatricula(alunos[j+1])){
-                Aluno* aux = alunos[j];
-                alunos[j] = alunos[j+1];
-                alunos[j+1] = aux;
+    for (int i = 0; i < tamanho; i++)
+    {
+        for (int j = 0; j < tamanho - 1; j++)
+        {
+            if (strcmp(AlunoGetNome(alunos[j]), AlunoGetNome(alunos[j + 1])) > 0)
+            {
+                Aluno *aux = alunos[j];
+                alunos[j] = alunos[j + 1];
+                alunos[j + 1] = aux;
             }
         }
     }
 }
 
-
-//Copia o vetor de alunos
-Aluno** AlunoCopiaVetor(Aluno** alunos, int tamanho)
+void AlunoOrdenaPorMatricula(Aluno **alunos, int tamanho)
 {
-    Aluno** copia = AlunoCriaVetor(tamanho);
-    for(int i = 0; i < tamanho; i++){
+    for (int i = 0; i < tamanho; i++)
+    {
+        for (int j = 0; j < tamanho - 1; j++)
+        {
+            if (AlunoGetMatricula(alunos[j]) > AlunoGetMatricula(alunos[j + 1]))
+            {
+                Aluno *aux = alunos[j];
+                alunos[j] = alunos[j + 1];
+                alunos[j + 1] = aux;
+            }
+        }
+    }
+}
+
+Aluno **AlunoCopiaVetor(Aluno **alunos, int tamanho)
+{
+    Aluno **copia = AlunoCriaVetor(tamanho);
+    for (int i = 0; i < tamanho; i++)
+    {
         copia[i] = AlunoCria(AlunoGetNome(alunos[i]), AlunoGetMatricula(alunos[i]));
     }
     return copia;
 }
 
-//Imprime o vetor de alunos
-void AlunoImprimeVetor(Aluno** alunos, int tamanho)
+void AlunoImprimeVetor(Aluno **alunos, int tamanho)
 {
-    for(int i = 0; i < tamanho; i++){
+    for (int i = 0; i < tamanho; i++)
+    {
         cout << AlunoGetNome(alunos[i]) << " " << AlunoGetMatricula(alunos[i]) << endl;
     }
 }
 
-//Desordena o vetor de alunos
-void AlunoDesordenaVetor(Aluno** alunos, int tamanho){
-    for(int i = 0; i < tamanho; i++){
+void AlunoDesordenaVetor(Aluno **alunos, int tamanho)
+{
+    for (int i = 0; i < tamanho; i++)
+    {
         int j = rand() % tamanho;
-        Aluno* aux = alunos[i];
+        Aluno *aux = alunos[i];
         alunos[i] = alunos[j];
         alunos[j] = aux;
     }

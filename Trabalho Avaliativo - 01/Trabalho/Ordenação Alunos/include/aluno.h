@@ -9,7 +9,7 @@ Aluno* AlunoCria(const char* nome, int matricula);
 //Seta o nome do aluno
 void AlunoSetNome(Aluno* aluno, const char* nome);
 
-//Set a matricula do aluno
+//Seta a matricula do aluno
 void AlunoSetMatricula(Aluno* aluno, int matricula);
 
 //Get o nome do aluno

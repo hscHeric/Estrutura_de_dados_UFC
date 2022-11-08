@@ -1,7 +1,7 @@
 #include "../include/utilitario.h"
 #include "../include/ordenacao.h"
 
-void BubbleSort(int* vetor, int tamanho)
+void BubbleSort(int *vetor, int tamanho)
 {
     bool trocou = true;
     for (int i = 0; i < tamanho - 1 && trocou; i++)
@@ -18,7 +18,7 @@ void BubbleSort(int* vetor, int tamanho)
     }
 }
 
-void BubbleSortRecursivo(int* vetor, int tamanho)
+void BubbleSortRecursivo(int *vetor, int tamanho)
 {
     if (tamanho == 1)
     {
@@ -34,7 +34,7 @@ void BubbleSortRecursivo(int* vetor, int tamanho)
     BubbleSortRecursivo(vetor, tamanho - 1);
 }
 
-void BubbleSortImparPar(int* vetor, int tamanho)
+void BubbleSortImparPar(int *vetor, int tamanho)
 {
     bool trocou = true;
     int i, j;
@@ -62,7 +62,7 @@ void BubbleSortImparPar(int* vetor, int tamanho)
     }
 }
 
-void InsertionSort(int* vetor, int tamanho)
+void InsertionSort(int *vetor, int tamanho)
 {
     int i, j, aux;
     for (i = 1; i < tamanho; i++)
@@ -76,7 +76,7 @@ void InsertionSort(int* vetor, int tamanho)
     }
 }
 
-void InsertionSortRecursivo(int* vetor, int tamanho)
+void InsertionSortRecursivo(int *vetor, int tamanho)
 {
     if (tamanho <= 1)
     {
@@ -92,36 +92,26 @@ void InsertionSortRecursivo(int* vetor, int tamanho)
     }
     vetor[j + 1] = ultimo;
 }
-//InsetionSort
-void InsertionSortImparPar(int* vetor, int tamanho)
+// InsetionSort
+void InsertionSortImparPar(int *vetor, int tamanho)
 {
     int i, j, aux;
     for (i = 1; i < tamanho; i++)
     {
         aux = vetor[i];
-        for (j = i; (j > 0) && (aux < vetor[j - 1]); j--)
+        for (j = i; (j > 0) && ((aux % 2 == 1 && vetor[j - 1] % 2 == 1 && aux < vetor[j - 1]) ||
+                                (aux % 2 == 1 && vetor[j - 1] % 2 == 0) ||
+                                (aux % 2 == 0 && vetor[j - 1] % 2 == 0 && aux > vetor[j - 1]));
+             j--)
         {
+
             vetor[j] = vetor[j - 1];
         }
         vetor[j] = aux;
     }
-    int k = 0;
-    for (i = 0; i < tamanho; i++)
-    {
-        if (vetor[i] % 2 == 0)
-        {
-            aux = vetor[i];
-            for (j = i; (j > k) && (aux < vetor[j - 1]); j--)
-            {
-                vetor[j] = vetor[j - 1];
-            }
-            vetor[j] = aux;
-            k++;
-        }
-    }
 }
 
-void SelectionSort(int* vetor, int tamanho)
+void SelectionSort(int *vetor, int tamanho)
 {
     int i, j, min;
     for (i = 0; i < tamanho - 1; i++)
@@ -141,7 +131,7 @@ void SelectionSort(int* vetor, int tamanho)
     }
 }
 
-void SelectionSortRecursivo(int* vetor, int tamanho)
+void SelectionSortRecursivo(int *vetor, int tamanho)
 {
     if (tamanho <= 1)
     {
@@ -162,7 +152,7 @@ void SelectionSortRecursivo(int* vetor, int tamanho)
     SelectionSortRecursivo(vetor, tamanho - 1);
 }
 
-void SelectionSortImparPar(int* vetor, int tamanho)
+void SelectionSortImparPar(int *vetor, int tamanho)
 {
     int i, j, min;
     for (i = 0; i < tamanho - 1; i++)
@@ -205,10 +195,10 @@ void SelectionSortImparPar(int* vetor, int tamanho)
     }
 }
 
-void Intercala(int* vetor, int incio, int meio, int fim)
+void Intercala(int *vetor, int incio, int meio, int fim)
 {
     int i, j, k;
-    int* vetorAux = new int[fim - incio + 1];
+    int *vetorAux = new int[fim - incio + 1];
     i = incio;
     j = meio + 1;
     k = 0;
@@ -246,10 +236,10 @@ void Intercala(int* vetor, int incio, int meio, int fim)
     delete[] vetorAux;
 }
 
-void IntercalaImparPar(int* vetor, int incio, int meio, int fim)
+void IntercalaImparPar(int *vetor, int incio, int meio, int fim)
 {
     int i, j, k;
-    int* vetorAux = new int[fim - incio + 1];
+    int *vetorAux = new int[fim - incio + 1];
     i = incio;
     j = meio + 1;
     k = 0;
@@ -310,7 +300,7 @@ void IntercalaImparPar(int* vetor, int incio, int meio, int fim)
     }
 }
 
-void MergeSort(int* vetor, int inicio, int fim)
+void MergeSort(int *vetor, int inicio, int fim)
 {
     if (inicio < fim)
     {
@@ -321,7 +311,7 @@ void MergeSort(int* vetor, int inicio, int fim)
     }
 }
 
-void MergeSortInterativo(int* vetor, int inicio, int fim)
+void MergeSortInterativo(int *vetor, int inicio, int fim)
 {
     int i, j, k, tam, esq, dir;
     for (tam = 1; tam < fim; tam = 2 * tam)
@@ -338,7 +328,7 @@ void MergeSortInterativo(int* vetor, int inicio, int fim)
     }
 }
 
-void MergeSortImparPar(int* vetor, int inicio, int fim)
+void MergeSortImparPar(int *vetor, int inicio, int fim)
 {
     if (inicio < fim)
     {
@@ -349,7 +339,7 @@ void MergeSortImparPar(int* vetor, int inicio, int fim)
     }
 }
 
-int Separa(int* vetor, int inicio, int fim)
+int Separa(int *vetor, int inicio, int fim)
 {
     int pivo = vetor[inicio];
     int i = inicio + 1;
@@ -376,7 +366,7 @@ int Separa(int* vetor, int inicio, int fim)
     return j;
 }
 
-int SepararImparPar(int* vetor, int inicio, int fim)
+int SepararImparPar(int *vetor, int inicio, int fim)
 {
     int pivo = vetor[inicio];
     int i = inicio + 1;
@@ -426,7 +416,7 @@ int SepararImparPar(int* vetor, int inicio, int fim)
     return j;
 }
 
-void QuickSort(int* vetor, int inicio, int fim)
+void QuickSort(int *vetor, int inicio, int fim)
 {
     if (inicio < fim)
     {
@@ -436,7 +426,7 @@ void QuickSort(int* vetor, int inicio, int fim)
     }
 }
 
-void QuickSortImparPar(int* vetor, int inicio, int fim)
+void QuickSortImparPar(int *vetor, int inicio, int fim)
 {
     if (inicio < fim)
     {
