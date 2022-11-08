@@ -43,17 +43,9 @@ void BubbleSortImparPar(int *vetor, int tamanho)
         trocou = false;
         for (j = tamanho - 1; j > i; j--)
         {
-            if (vetor[j - 1] % 2 == 1 && vetor[j] % 2 == 1 && vetor[j - 1] > vetor[j])
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j] % 2 == 1 && vetor[j - 1] % 2 == 0)
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j - 1] % 2 == 0 && vetor[j] % 2 == 0 && vetor[j - 1] < vetor[j])
+            if ((vetor[j - 1] % 2 == 1 && vetor[j] % 2 == 1 && vetor[j - 1] > vetor[j])||
+                (vetor[j - 1] % 2 == 0 && vetor[j] % 2 == 0 && vetor[j - 1] < vetor[j])||
+                (vetor[j] % 2 == 1 && vetor[j - 1] % 2 == 0))
             {
                 Troca(&vetor[j], &vetor[j - 1]);
                 trocou = true;
@@ -92,6 +84,7 @@ void InsertionSortRecursivo(int *vetor, int tamanho)
     }
     vetor[j + 1] = ultimo;
 }
+
 // InsetionSort
 void InsertionSortImparPar(int *vetor, int tamanho)
 {
@@ -160,7 +153,9 @@ void SelectionSortImparPar(int *vetor, int tamanho)
         min = i;
         for (j = i + 1; j < tamanho; j++)
         {
-            if (vetor[j] < vetor[min])
+            if ((vetor[j]%2==1 && vetor[min]%2==1)&&(vetor[j] < vetor[min]) ||
+                (vetor[j]%2==0 && vetor[min]%2==0)&&(vetor[j] > vetor[min]) ||
+                (vetor[j]%2==1 && vetor[min]%2==0))
             {
                 min = j;
             }
@@ -168,29 +163,6 @@ void SelectionSortImparPar(int *vetor, int tamanho)
         if (i != min)
         {
             Troca(&vetor[i], &vetor[min]);
-        }
-    }
-    bool trocou = true;
-    for (i = 0; i < tamanho - 1 && trocou; i++)
-    {
-        trocou = false;
-        for (j = tamanho - 1; j > i; j--)
-        {
-            if (vetor[j - 1] % 2 == 1 && vetor[j] % 2 == 1 && vetor[j - 1] > vetor[j])
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j] % 2 == 1 && vetor[j - 1] % 2 == 0)
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j - 1] % 2 == 0 && vetor[j] % 2 == 0 && vetor[j - 1] < vetor[j])
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
         }
     }
 }
@@ -245,15 +217,30 @@ void IntercalaImparPar(int *vetor, int incio, int meio, int fim)
     k = 0;
     while (i <= meio && j <= fim)
     {
-        if (vetor[i] <= vetor[j])
+        if ((vetor[i]%2==1 && vetor[j]%2==1 && vetor[i] <= vetor[j])||
+            (vetor[i]%2==1 && vetor[j]%2==0))
         {
             vetorAux[k] = vetor[i];
             i++;
         }
-        else
+        else if ((vetor[i]%2==1 && vetor[j]%2==1 && vetor[j] <= vetor[i])||
+                 (vetor[i]%2==0 && vetor[j]%2==1))
         {
             vetorAux[k] = vetor[j];
             j++;
+        }
+        else
+        {
+            if(vetor[j] <= vetor[i])
+            {
+                vetorAux[k] = vetor[i];
+                i++;
+            }
+            else
+            {
+                vetorAux[k] = vetor[j];
+                j++;
+            }
         }
         k++;
     }
@@ -269,35 +256,14 @@ void IntercalaImparPar(int *vetor, int incio, int meio, int fim)
         j++;
         k++;
     }
+
+    
     for (i = incio; i <= fim; i++)
     {
         vetor[i] = vetorAux[i - incio];
     }
 
     delete[] vetorAux;
-    bool trocou = true;
-    for (i = 0; i < fim - incio + 1 - 1 && trocou; i++)
-    {
-        trocou = false;
-        for (j = fim - incio + 1 - 1; j > i; j--)
-        {
-            if (vetor[j - 1] % 2 == 1 && vetor[j] % 2 == 1 && vetor[j - 1] > vetor[j])
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j] % 2 == 1 && vetor[j - 1] % 2 == 0)
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j - 1] % 2 == 0 && vetor[j] % 2 == 0 && vetor[j - 1] < vetor[j])
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-        }
-    }
 }
 
 void MergeSort(int *vetor, int inicio, int fim)
@@ -313,17 +279,22 @@ void MergeSort(int *vetor, int inicio, int fim)
 
 void MergeSortInterativo(int *vetor, int inicio, int fim)
 {
-    int i, j, k, tam, esq, dir;
-    for (tam = 1; tam < fim; tam = 2 * tam)
+    int i, j, k, tamanho;
+    for (tamanho = 1; tamanho < fim - inicio + 1; tamanho *= 2)
     {
-        for (esq = 0; esq < fim; esq += 2 * tam)
+        for (i = inicio; i < fim; i += 2 * tamanho)
         {
-            dir = esq + 2 * tam - 1;
-            if (dir > fim)
+            j = i + tamanho - 1;
+            k = i + 2 * tamanho - 1;
+            if (j > fim)
             {
-                dir = fim;
+                j = fim;
             }
-            Intercala(vetor, esq, (esq + dir) / 2, dir);
+            if (k > fim)
+            {
+                k = fim;
+            }
+            Intercala(vetor, i, j, k);
         }
     }
 }
@@ -341,78 +312,37 @@ void MergeSortImparPar(int *vetor, int inicio, int fim)
 
 int Separa(int *vetor, int inicio, int fim)
 {
-    int pivo = vetor[inicio];
-    int i = inicio + 1;
-    int j = fim;
-    while (i <= j)
+    int pivo = vetor[fim];
+    int j = inicio;
+    for (int k = inicio; k < fim; k++)
     {
-        if (vetor[i] <= pivo)
+        if (vetor[k]<=pivo)
         {
-            i++;
-        }
-        else if (pivo < vetor[j])
-        {
-            j--;
-        }
-        else
-        {
-            Troca(&vetor[i], &vetor[j]);
-            i++;
-            j--;
+            Troca(&vetor[k], &vetor[j]);
+            j++;
         }
     }
-    vetor[inicio] = vetor[j];
+    vetor[fim] = vetor[j];
     vetor[j] = pivo;
     return j;
 }
 
 int SepararImparPar(int *vetor, int inicio, int fim)
 {
-    int pivo = vetor[inicio];
-    int i = inicio + 1;
-    int j = fim;
-    while (i <= j)
+    int pivo = vetor[fim];
+    int j = inicio;
+    for (int k = inicio; k < fim; k++)
     {
-        if (vetor[i] <= pivo)
+        if ((vetor[k]%2==1 && pivo%2==1 && vetor[k] <= pivo)||
+            (vetor[k]%2==0 && pivo%2==0 && vetor[k] >= pivo)||
+            (vetor[k]%2==1 && pivo%2==0))
         {
-            i++;
-        }
-        else if (pivo < vetor[j])
-        {
-            j--;
-        }
-        else
-        {
-            Troca(&vetor[i], &vetor[j]);
-            i++;
-            j--;
+            Troca(&vetor[k], &vetor[j]);
+            j++;
         }
     }
-    vetor[inicio] = vetor[j];
+    vetor[fim] = vetor[j];
     vetor[j] = pivo;
-    bool trocou = true;
-    for (i = 0; i < fim - inicio + 1 - 1 && trocou; i++)
-    {
-        trocou = false;
-        for (j = fim - inicio + 1 - 1; j > i; j--)
-        {
-            if (vetor[j - 1] % 2 == 1 && vetor[j] % 2 == 1 && vetor[j - 1] > vetor[j])
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j] % 2 == 1 && vetor[j - 1] % 2 == 0)
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-            else if (vetor[j - 1] % 2 == 0 && vetor[j] % 2 == 0 && vetor[j - 1] < vetor[j])
-            {
-                Troca(&vetor[j], &vetor[j - 1]);
-                trocou = true;
-            }
-        }
-    }
     return j;
 }
 

@@ -147,6 +147,15 @@ int main(void)
     ImprimeVetor(vetorQuickSort, tamanho);
     delete[] vetorQuickSort;
 
+    //QuickSortImparPar
+    cout << "  ";
+    int* vetorQuickSortImparPar = new int[tamanho];
+    CopiaVetor(vetor, vetorQuickSortImparPar, tamanho);
+    cout << "QuickSort Impar Par: ";
+    QuickSortImparPar(vetorQuickSortImparPar, 0, tamanho - 1);
+    ImprimeVetor(vetorQuickSortImparPar, tamanho);
+    delete[] vetorQuickSortImparPar;
+
     cout << "\n";
 
     delete[] vetor;
