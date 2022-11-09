@@ -1,43 +1,66 @@
 #include <iostream>
-#include "../include/ponto.h"
-#include "../include/circle.h"
+#include "../include/matrix.h"
 
 using namespace std;
 
 int main(void)
 {
-    double centroX, centroY;
-    cout << "Digite o valor de x do centro do circulo: ";
-    cin >> centroX;
-    cout << "Digite o valor de y do centro do circulo: ";
-    cin >> centroY;
-    Ponto *centro = new Ponto(centroX, centroY);
+    int linhas, colunas;
+    cout << "Digite o numero de linhas: ";
+    cin >> linhas;
+    cout << "Digite o numero de colunas: ";
+    cin >> colunas;
 
-    double raio;
-    cout << "Digite o valor do raio do circulo: ";
-    cin >> raio;
-    Circle *circulo = new Circle(raio, *centro);
+    cout << endl;
+    Matrix m1(linhas, colunas);
 
-    cout << "Raio do circulo: " << circulo->getRadius() << endl;
-    cout << "Centro do circulo: (" << circulo->getCenter().getX() << ", " << circulo->getCenter().getY() << ")" << endl;
-
-    double pontoX, pontoY;
-    cout << "Digite o valor de x do ponto: ";
-    cin >> pontoX;
-    cout << "Digite o valor de y do ponto: ";
-    cin >> pontoY;
-    Ponto *ponto = new Ponto(pontoX, pontoY);
-
-    if (circulo->interior(*ponto))
+    for (int i = 0; i < m1.getLinhas(); i++)
     {
-        cout << "O ponto esta dentro do circulo" << endl;
+        for (int j = 0; j < m1.getColunas(); j++)
+        {
+            double valor;
+            cout << "Digite o valor da posicao " << i << " " << j << ": ";
+            cin >> valor;
+            m1.setValor(i, j, valor);
+        }
+    }
+    cout << endl;
+    cout << "Matriz 1:" << endl;
+    m1.imprime();
+
+    cout << endl;
+    cout << "Digite o numero de linhas: ";
+    cin >> linhas;
+    cout << "Digite o numero de colunas: ";
+    cin >> colunas;
+
+    cout << endl;
+    Matrix m2(linhas, colunas);
+
+    for (int i = 0; i < m2.getLinhas(); i++)
+    {
+        for (int j = 0; j < m2.getColunas(); j++)
+        {
+            double valor;
+            cout << "Digite o valor da posicao " << i << " " << j << ": ";
+            cin >> valor;
+            m2.setValor(i, j, valor);
+        }
+    }
+
+    cout << endl;
+    cout << "Matriz 2:" << endl;
+    m2.imprime();
+
+    if (m1.igual(m2))
+    {
+        cout << "As matrizes sao iguais" << endl;
     }
     else
     {
-        cout << "O ponto nao esta dentro do circulo" << endl;
+        cout << "As matrizes sao diferentes" << endl;
     }
+    return 0;
 
-    delete circulo;
-    delete centro;
-    delete ponto;
+    cout << endl;
 }
