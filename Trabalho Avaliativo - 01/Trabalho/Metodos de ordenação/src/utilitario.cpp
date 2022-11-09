@@ -5,14 +5,14 @@
 
 using namespace std;
 
-void Troca(int* a, int* b)
+void Troca(int *a, int *b)
 {
     int aux = *a;
     *a = *b;
     *b = aux;
 }
 
-void GerarVetorAleatorio(int* vetor, int tamanho)
+void GerarVetorAleatorio(int *vetor, int tamanho)
 {
     srand(time(NULL));
     for (int i = 0; i < tamanho; i++)
@@ -21,16 +21,19 @@ void GerarVetorAleatorio(int* vetor, int tamanho)
     }
 }
 
-void ImprimeVetor(int* vetor, int tamanho)
+void ImprimeVetor(int *vetor, int tamanho)
 {
-    for (int i = 0; i < tamanho; i++)
+    if (tamanho <= 100)
     {
-        cout << vetor[i] << " ";
+        for (int i = 0; i < tamanho; i++)
+        {
+            cout << vetor[i] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
 }
 
-void CopiaVetor(int* vetor, int* vetorCopia, int tamanho)
+void CopiaVetor(int *vetor, int *vetorCopia, int tamanho)
 {
     for (int i = 0; i < tamanho; i++)
     {
