@@ -10,6 +10,7 @@ LinkedList::LinkedList()
 {
     m_head = m_sentinela;
     m_size = 0;
+    m_sentinela->data = NULL;
     m_sentinela->next = nullptr;
 }
 
@@ -18,7 +19,7 @@ LinkedList::LinkedList(const LinkedList &l)
     m_head = m_sentinela;
     m_size = 0;
     m_sentinela->next = nullptr;
-    Node *aux = l.m_head;
+    Node *aux = l.m_head->next->next;
     while (aux != nullptr)
     {
         push_back(aux->data);
@@ -44,12 +45,21 @@ int LinkedList::size()
 
 // Returs true if and only if the
 // list is empty
-bool LinkedList::empty()
+bool LinkedList::empty()    
 {
+    auto current = m_head->next->next;
+    auto previous = m_head->next;
+    while (current != nullptr)
+    {
+        previous = current;
+        current = current->next;
+
+        delete previous;
+    }
+
     return m_head == nullptr;
 }
 
-// Adds an element at the end of the list
 void LinkedList::push_back(const Item &data)
 {
     Node *newnode = new Node(data, nullptr);
@@ -69,7 +79,6 @@ void LinkedList::push_back(const Item &data)
     m_size++;
 }
 
-// Deletes an element from the end of the list
 Item LinkedList::pop_back()
 {
     if (m_head == nullptr)
@@ -142,7 +151,6 @@ std::string LinkedList::toString()
     return s;
 }
 
-// Inserts data at any position in the range [0..size()]
 void LinkedList::insert(int index, const Item &data)
 {
     if (index < 0 || index > m_size)
@@ -171,7 +179,6 @@ void LinkedList::insert(int index, const Item &data)
     }
 }
 
-// Deletes data at any position in the range [0..size()-1]
 void LinkedList::removeAt(int index)
 {
     if (index < 0 || index >= m_size)
@@ -199,7 +206,6 @@ void LinkedList::removeAt(int index)
     m_size--;
 }
 
-
 void LinkedList::remove(const Item &element){
     Node *current = m_head;
     Node *previous = nullptr;
@@ -226,7 +232,7 @@ void LinkedList::remove(const Item &element){
 // Empty the list and frees memory
 void LinkedList::clear()
 {
-    while (m_head != nullptr)
+    while (m_head->next->next != nullptr)
     {
         Node *temp = m_head;
         m_head = m_head->next;
@@ -235,7 +241,6 @@ void LinkedList::clear()
     m_size = 0;
 }
 
-// Destructor
 LinkedList::~LinkedList()
 {
     clear();
