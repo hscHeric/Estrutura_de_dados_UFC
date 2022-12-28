@@ -1,0 +1,5 @@
+01 - Joguinho: Torre de Hanói : https://www.noas.com.br/ensino-fundamental-1/matematica/torre-de-hanoi/
+
+02 - Explicação do jogo Torre de Hanói: http://clubes.obmep.org.br/blog/torre-de-hanoi/
+
+03 - O que é recursividade? (Khan Academy): https://pt.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/recursion

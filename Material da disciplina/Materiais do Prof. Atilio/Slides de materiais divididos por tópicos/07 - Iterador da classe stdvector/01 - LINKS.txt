@@ -1,0 +1,8 @@
+01. Vídeo: Iterator do vector
+	https://youtu.be/cOgmFrk619M
+
+02. Introduction Iterators c++
+	https://www.geeksforgeeks.org/introduction-iterators-c/
+
+03. Diferenças entre iterador e ponteiro
+	https://acervolima.com/diferenca-entre-iteradores-e-ponteiros-em-c-c-com-exemplos/

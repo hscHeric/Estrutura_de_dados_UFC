@@ -1,0 +1,8 @@
+1 - VSCODE LINUX: COMO INSTALAR DA FORMA CORRETA
+	https://youtu.be/5_6p8LmC8dQ
+
+2 - INSTALANDO O COMPILADOR G++ NO UBUNTU LINUX
+	https://github.com/Atilio-Luiz/ed_2022_2/blob/main/Linux_G%2B%2B/README.md
+
+3 - INSTALANDO A EXTENSÃO CODE RUNNER NO VS CODE E RODANDO UM PROGRAMA C++
+	https://github.com/Atilio-Luiz/ed_2022_2/blob/main/Code_Runner/README.md

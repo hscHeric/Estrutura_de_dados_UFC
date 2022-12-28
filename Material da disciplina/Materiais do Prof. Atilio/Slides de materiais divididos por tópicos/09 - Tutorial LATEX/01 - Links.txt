@@ -1,0 +1,6 @@
+SBC Conferences Template: https://www.overleaf.com/latex/templates/sbc-conferences-template/blbxwjwzdngr
+
+Introdução ao LaTeX (Minicurso): https://youtu.be/ZGE-3odMM_c
+
+Minicurso Introdução ao Overleaf Parte 1 - XXV Semana da Física UEL: https://www.youtube.com/watch?v=0ume5tHE1Z4&ab_channel=PETF%C3%ADsicaUEL
+

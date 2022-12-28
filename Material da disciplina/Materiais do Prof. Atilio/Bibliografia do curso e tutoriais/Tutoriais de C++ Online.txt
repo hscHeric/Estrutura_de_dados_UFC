@@ -1,0 +1,3 @@
+(LearnCpp.com): https://www.learncpp.com/
+(Cpulusplus.com): http://www.cplusplus.com/doc/tutorial/
+(Material desenvolvido pelo Prof José Lucas Rangel): http://www.ic.uff.br/~cbraga/ed/apostila/

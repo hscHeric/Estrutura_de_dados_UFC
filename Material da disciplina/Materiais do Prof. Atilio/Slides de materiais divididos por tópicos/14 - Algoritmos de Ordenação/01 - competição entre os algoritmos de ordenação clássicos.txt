@@ -1,0 +1,5 @@
+15 Sorting Algorithms in 6 Minutes: https://www.youtube.com/watch?v=kPRA0W1kECg&ab_channel=TimoBingmann
+
+Visualization and Comparison of Sorting Algorithms: https://www.youtube.com/watch?v=ZZuD6iUe3Pc&ab_channel=ViktorBohush
+
+Como Medir Tempo de Execução com a Biblioteca Chrono do C++: https://www.youtube.com/watch?v=YePlZK84yFg&feature=emb_imp_woyt

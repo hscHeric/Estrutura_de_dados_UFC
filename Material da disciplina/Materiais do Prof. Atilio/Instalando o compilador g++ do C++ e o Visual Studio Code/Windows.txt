@@ -1,0 +1,8 @@
+1 - COMO INSTALAR (MINGW) COMPILADOR DE C/C++ NO WINDOWS 10/11 : 
+	https://www.youtube.com/watch?v=1Uw9EV4Te8M&ab_channel=AtivsCode
+
+2 - COMO BAIXAR E INSTALAR O VISUAL STUDIO CODE:
+	https://www.youtube.com/watch?v=rsPNyvQJaHg&ab_channel=AtivsCode
+
+3 - CONFIGURAR O VSCODE PARA COMPILAR E EXECUTAR C/C++:
+	https://www.youtube.com/watch?v=gwrpPcIBKFY&ab_channel=AtivsCode

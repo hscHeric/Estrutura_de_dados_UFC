@@ -1,0 +1,5 @@
+Em muitas aplicações do mundo real, o programa precisa checar se a entrada do usuário está correta.
+
+Este tutorial ensina como escrever um programa robusto que checa a entrada dada pelo usuário.
+
+https://www.learncpp.com/cpp-tutorial/stdcin-and-handling-invalid-input/
